@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/itunesMediaListFragment">
+
+    <fragment
+        android:id="@+id/itunesMediaListFragment"
+        android:name="com.rain.itunes_api.ui.fragments.ItunesMediaListFragment"
+        android:label="ItunesMediaListFragment" >
+        <action
+            android:id="@+id/viewItunesMedia"
+            app:destination="@id/itunesMediaOverviewFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/itunesMediaOverviewFragment"
+        android:name="com.rain.itunes_api.ui.fragments.ItunesMediaOverviewFragment"
+        android:label="ItunesMediaOverviewFragment" >
+    </fragment>
+</navigation>
