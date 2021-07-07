@@ -15,12 +15,15 @@ import kotlinx.android.synthetic.main.item_itunes_media.view.tv_genre
 import kotlinx.android.synthetic.main.item_itunes_media.view.tv_price
 import javax.inject.Inject
 
+//Adapter for recyclerview
 class ItunesMediaListAdapter @Inject constructor(
     private val glide: RequestManager
 ) : RecyclerView.Adapter<ItunesMediaListAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
+    //List differ is a tool that takes 2 list and calculates the difference between those lists,
+    //which enables our recyclerview to update items that are new in the new list.
     private val diffCallback = object : DiffUtil.ItemCallback<ItunesMedia>() {
         override fun areItemsTheSame(oldItem: ItunesMedia, newItem: ItunesMedia): Boolean {
             return oldItem.trackId == newItem.trackId
@@ -42,6 +45,7 @@ class ItunesMediaListAdapter @Inject constructor(
         )
     }
 
+    //Binding data from the object to the viewholders in the recyclerview
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itunesMedia = itunesMediaList[position]
         holder.itemView.apply {

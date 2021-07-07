@@ -13,9 +13,12 @@ class ItunesMediaViewModel @ViewModelInject constructor(
     private val repository: ItunesMediaRepository
 ) : ViewModel() {
 
+    //Create a mutable live data and immutable live data to restrict fragment or activities
+    //from changing data from API
     private val _itunesMediaItems = MutableLiveData<List<ItunesMedia>>()
     val itunesMediaItems: LiveData<List<ItunesMedia>> = _itunesMediaItems
 
+    //Call repository function from a coroutine scope since repo has suspend function
     init {
         viewModelScope.launch {
             val result = repository.search(

@@ -13,6 +13,7 @@ class ItunesMediaOverviewFragment : Fragment(R.layout.fragment_media_overview) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //Retrieve parcelable bundle from arguments
         arguments?.getParcelable<ItunesMedia>("itunesMedia")?.let {
             itunesMedia = it
         }
@@ -25,12 +26,12 @@ class ItunesMediaOverviewFragment : Fragment(R.layout.fragment_media_overview) {
             requireActivity().onBackPressed()
         }
 
+        //Bind data to the view components with kotlin synthetic
         vv_preview.setVideoPath(itunesMedia?.previewUrl)
         vv_preview.setOnPreparedListener {
             vv_preview.start()
             it.isLooping = true
         }
-
         tv_trackName.text = itunesMedia?.trackName
         tv_genre.text = itunesMedia?.primaryGenreName
         tv_longDescription.text = itunesMedia?.longDescription

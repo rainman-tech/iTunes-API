@@ -10,6 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
+//A dagger hilt module for providing dependency injections of repositories
 @Module
 @InstallIn(ApplicationComponent::class)
 object RepositoryModule {

@@ -1,5 +1,6 @@
 package com.rain.itunes_api.network.model
 
+//A DTO(Data transfer object) which will be utilized by retrofit service
 class ItunesMediaDto(
     val artistName: String?,
     val artworkUrl100: String?,

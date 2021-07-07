@@ -11,6 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+//A dagger hilt module for providing dependency injections for network request
 @Module
 @InstallIn(ApplicationComponent::class)
 object NetworkModule {
@@ -21,6 +22,7 @@ object NetworkModule {
         return ItunesMediaDtoMapper()
     }
 
+    //Creating an instance of retrofit builder
     @Singleton
     @Provides
     fun provideApiService(): ApiService {

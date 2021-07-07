@@ -3,6 +3,7 @@ package com.rain.itunes_api.domain.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+//A domain model which will be observed by the framework
 @Parcelize
 data class ItunesMedia(
     val artistName: String?,
