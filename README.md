@@ -1,7 +1,7 @@
 # iTunes-API
 
 <!-- ABOUT THE PROJECT -->
-<img src="ss1.png" width="250" height="448"> <img src="ss2.png" width="250" height="448"> <img src="ss4.png" width="250" height="448">
+<img src="Screenshot01.png" width="250" height="448"> <img src="Screenshot02.png" width="250" height="448"> <img src="Screenshot03.png" width="250" height="448">
 
 ## About The Project
 
