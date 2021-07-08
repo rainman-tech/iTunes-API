@@ -7,7 +7,7 @@ import com.rain.itunes_api.network.model.ItunesMediaDtoMapper
 //Repository Implementation and mapping of data object from DTO to Domain Model
 class ItunesMediaRepositoryImpl(
     private val apiService: ApiService,
-    private val mapper: ItunesMediaDtoMapper
+    private val mapper: ItunesMediaDtoMapper,
 ) : ItunesMediaRepository {
 
     override suspend fun search(term: String, country: String, media: String): List<ItunesMedia> {

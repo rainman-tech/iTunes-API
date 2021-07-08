@@ -6,7 +6,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.rain.itunes_api.R
+import com.rain.itunes_api.db.FavoriteDatabase
 import com.rain.itunes_api.db.VisitDatabase
+import com.rain.itunes_api.others.Constants.FAVORITE_DATABASE_NAME
 import com.rain.itunes_api.others.Constants.VISIT_DATABASE_NAME
 import com.rain.itunes_api.ui.BaseApplication
 import dagger.Module
@@ -51,5 +53,19 @@ object AppModule {
     @Singleton
     @Provides
     fun providesVisitDao(db: VisitDatabase) = db.getVisitDao()
+
+    @Singleton
+    @Provides
+    fun provideFavoriteDatabase(
+        @ApplicationContext app: Context
+    ) = Room.databaseBuilder(
+        app,
+        FavoriteDatabase::class.java,
+        FAVORITE_DATABASE_NAME
+    ).build()
+
+    @Singleton
+    @Provides
+    fun providesFavoriteDao(db: FavoriteDatabase) = db.getFavoriteDao()
 
 }

@@ -54,6 +54,20 @@ class ItunesMediaListAdapter @Inject constructor(
             tv_genre.text = itunesMedia.primaryGenreName
             tv_price.text = "${itunesMedia.currency} ${itunesMedia.trackPrice}"
 
+            //Change the heart drawable if itunesMedia is added in favorites
+            if (itunesMedia.isFavorite) {
+                iv_favorite.setImageResource(R.drawable.ic_baseline_favorite_24)
+            } else {
+                iv_favorite.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+            }
+
+            //Separated on click listener for recyclerview item and addFavorite
+            iv_favorite.setOnClickListener {
+                onFavoriteClickListener?.let { click ->
+                    click(itunesMedia)
+                }
+            }
+
             setOnClickListener {
                 onItemClickListener?.let { click ->
                     click(itunesMedia)
@@ -63,9 +77,14 @@ class ItunesMediaListAdapter @Inject constructor(
     }
 
     private var onItemClickListener: ((ItunesMedia) -> Unit)? = null
+    private var onFavoriteClickListener: ((ItunesMedia) -> Unit)? = null
 
     fun setItemClickListener(listener: (ItunesMedia) -> Unit) {
         onItemClickListener = listener
+    }
+
+    fun setFavoriteClickListener(listener: (ItunesMedia) -> Unit) {
+        onFavoriteClickListener = listener
     }
 
     override fun getItemCount(): Int {

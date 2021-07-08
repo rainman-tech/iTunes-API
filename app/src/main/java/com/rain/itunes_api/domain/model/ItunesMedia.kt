@@ -43,5 +43,6 @@ data class ItunesMedia(
     val trackRentalPrice: Double?,
     val trackTimeMillis: Int?,
     val trackViewUrl: String?,
-    val wrapperType: String?
+    val wrapperType: String?,
+    var isFavorite: Boolean = false
 ) : Parcelable

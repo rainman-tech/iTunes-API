@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 //Repository used for room database visit_db
 class VisitRepository @Inject constructor(
-    val visitDao: VisitDao
+    private val visitDao: VisitDao
 ) {
 
     suspend fun insertVisit(visit: Visit) = visitDao.insertVisit(visit)

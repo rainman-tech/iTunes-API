@@ -8,7 +8,7 @@ import com.rain.itunes_api.repository.VisitRepository
 import kotlinx.coroutines.launch
 
 class VisitViewModel @ViewModelInject constructor(
-    val visitRepository: VisitRepository
+    private val visitRepository: VisitRepository
 ): ViewModel() {
 
     //Insert data to room db
